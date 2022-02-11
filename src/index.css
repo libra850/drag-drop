@@ -15,8 +15,7 @@ header{
 }
 
 .app {
-  background: url(../src/images/background.png);
-  background-repeat: no-repeat;
+  background-color: black;
   height: 100vh;
 }
 
@@ -26,4 +25,16 @@ header{
   margin: 30px;
   background-color: rgba(240, 248, 255, 0.808);
   border-radius: 5px;
+}
+
+.taskTitleInputArea{
+  width: 30%;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.taskTitleInput{
+  width: 80px;
+  padding: 4px 6px;
+  outline: none;
 }
