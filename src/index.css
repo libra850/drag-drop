@@ -1,0 +1,21 @@
+/* 初期化 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+  font-size: 50px;
+}
+
+header{
+  text-align: center;
+  background-color: rgb(6, 190, 190);
+}
+
+.app {
+  background: url(../src/images/background.png);
+  background-repeat: no-repeat;
+  height: 100vh;
+}
