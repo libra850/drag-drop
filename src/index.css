@@ -68,3 +68,24 @@ header{
   margin-right: 5px;
   border: none;
 }
+
+.taskCardsArea{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.addTaskCardButtonArea{
+  margin-left: -1%;
+  margin-top: 30px;
+}
+
+.addTaskCardButton{
+  padding: 5px 9px;
+  border-radius: 9px;
+  font-size: 20px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.733);
+  cursor: pointer;
+}
