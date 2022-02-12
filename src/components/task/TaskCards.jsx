@@ -7,8 +7,13 @@ export const TaskCards = () => {
   const [taskCardsList, setTaskCardsList] = useState([{id:0, draggableId:"item0"}]);
   return (
     <div className='taskCardsArea'>
-      {taskCardsList.map(taskCardList => (
-        <TaskCard key={taskCardList.id}/>
+      {taskCardsList.map(taskCard => (
+        <TaskCard 
+          key={taskCard.id}
+          taskCardsList={taskCardsList}
+          setTaskCardsList={setTaskCardsList}
+          taskCard={taskCard}
+        />
       ))}
       <AddTaskButton
         taskCardsList={taskCardsList}
