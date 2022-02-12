@@ -1,11 +1,37 @@
 import React from 'react';
+import { Droppable } from 'react-beautiful-dnd';
+import { DragDropContext } from 'react-beautiful-dnd';
+import { Task } from './Task';
 
-export const Tasks = ({ inputText,taskList }) => {
+const reorder = (taskList, startIndex, endIndex) => {
+  // タスクを並び替える
+  const remove = taskList.splice(startIndex, 1);
+  taskList.splice(endIndex, 0, remove[0]);
+};
+
+export const Tasks = ({ taskList, setTaskList }) => {
+  const handleDragEnd = (result) => {
+    console.log(result);
+    reorder(taskList, result.source.index, result.destination.index);
+    setTaskList(taskList);
+  };
   return (
     <div>
-      {taskList.map((task) => (
-        <div>{task.text}</div>
-      ))}
+      <DragDropContext onDragEnd={handleDragEnd}>
+        <Droppable droppableId='droppable'>
+          {(provided) => (
+            <div {...provided.droppableProps} ref={provided.innerRef}>
+              {taskList.map((task, index) => (
+                <div key={task.id}>
+                  <Task task={task} index={index} taskList={taskList} setTaskList={setTaskList}/>
+                </div>
+              ))}
+              {/* droppableの伸縮性を保証するもの */}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
     </div>
-  );
+  ); 
 };

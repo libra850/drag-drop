@@ -1,4 +1,5 @@
 import React from 'react'
+import { v4 as uuid } from 'uuid';
 
 export const TaskAddInput = (
   {
@@ -8,12 +9,20 @@ export const TaskAddInput = (
     setTaskList,
   }) => {
   const handleSubmit = (e) => {
+    const taskId = uuid();
     e.preventDefault();
     console.log(e)
+    if (inputText === ""){
+      return;
+    }
     // カードを追加する。taskListに追加していく。
     setTaskList([
       ...taskList,
       {
+        // 配列の長さをIDにしていく
+        id: taskId,
+        // 文字列のIDである必要有
+        draggableId: `task-${taskId}`,
         text: inputText,
       },
     ]);
