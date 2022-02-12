@@ -7,7 +7,7 @@ export const TaskDeleteButton = ({taskCardsList, setTaskCardsList,taskCard}) => 
   return (
     <div>
       <button className='taskCardDeleteButton' onClick={() => taskCardDeleteButton(taskCard.id)}>
-        <i class="fa-solid fa-square-xmark"></i>
+        <i className="fa-solid fa-square-xmark"></i>
       </button>
     </div>
   )
